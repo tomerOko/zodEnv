@@ -1,0 +1,29 @@
+tasks:
+------
+    10. proper environment variable loading
+        a. comment above every group in what module are they used
+        b. separate to files? 
+        c. an example template
+        d. a single source of truth (having eventually one single place that concentrates all the environment settings)
+            - importable (singleton)
+            - created from the last module importing it (first on runtime) (async imports??)
+            - changeable and unchangeable groups (object.lock/freeze)
+            - Joi validates (and documentation)
+            - exported with types
+            - all env's imported to one place 
+                * from Procces.ENV: Dockerfile, deployment, config maps, jenkins, OS defaults, scripts
+                * from files in the project: env, .json, .ts/.js
+                * secrets
+כרגע כל הקבצים נכנסים לי פרוסס אז הסדר עדיפוית שם זה לא ענינו של הסרבר - רק לתעד את זה
+מבחינת קבצים / פרוסס / ערך דיפולטיבי - צריך שתהיה איזשהי מערכת של סדר עדיפויות
+מה הקטע של הטייפס - 
+ * בטוח שהאינטליסנס ידע את הפרופרטיס
+ * שתהיה הערה מעל כל ערך
+אולי גם ממש סוג
+
+
+
+
+open questions:
+---------------
+    * 

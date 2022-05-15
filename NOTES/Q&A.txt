@@ -1,0 +1,59 @@
+ * what part of the compilation shuld avoid the test files 
+        -   there is a test container, dev container, build container, and prod container,
+        the test container compile the logic and tests and run the tests, the dev container 
+        also compile them both but run test only if commanded, the build container (or through
+        the dev container command), will run tsc with a production tsConfig file the will
+        not compile test (and not dev dependecies, set appropriate environment variables, and more..)
+
+
+run : 
+
+in production
+-------------
+    so there is a cluster running in the cloud, getting http requests 
+    from a cloudFront/cloundFlare to an ingress to a service(that includs load balancer) to the pod's networking drive
+    the a specifi port that nodeJS registered itself as the listener
+    and now the request's finaly made it into Express
+
+
+in local development
+-------------
+    so there is a cluster running locally getting requests from postman/ngrok/browser throw custom host
+    a ingress to a service(that includs load balancer) to the pod's networking drive
+    the a specifi port that nodeJS registered itself as the listener
+    and now the request's finaly made it into Express
+
+
+in cloud development
+-------------
+    so there is a a cluster and a replica cluster for dev, both running in the cloud, 
+    skaffold sync files from the local machine / rebuild image from the local machine to docker hub and rebuild the pod from that image , 
+    getting http requests from a cloudFront/cloundFlare to an ingress to a service(that includs load balancer) to the pod's networking drive
+    the a specifi port that nodeJS registered itself as the listener
+    and now the request's finaly made it into Express
+
+
+
+in hybrid development (only the the one service being developed run's locally)
+-------------
+    so there is a a cluster and a replica cluster for dev, both running in the cloud, 
+    option 1)   the cluster considering the local machine as part of the resource grop and the deployment of the 
+                pod being developed run's locally, snd skaffold do its thing locally (no need to go through docker hub)
+    option 2)   the event bus just sends https requests to the serviec running locally like any other external resource
+    option 3)   maybe k8s have some out of the box solution for
+
+
+
+    so there is a cluster running locally getting requests from postman/ngrok/browser throw custom host
+    a ingress to a service(that includs load balancer) to the pod's networking drive
+    the a specifi port that nodeJS registered itself as the listener
+    and now the request's finaly made it into Express
+
+
+what being part of the cluster give to a deployment
+1. it gets the compute power it's nedded
+2. it can get 
+3. it gets reloded
+4. insted of having public ip for every running container, only the cluster gets a public ip. 
+    then ther is ingresses reciving the reqest snd redirect's all of them by http header 'host name' to clusterIP services
+    then 
