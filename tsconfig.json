@@ -4,7 +4,10 @@
       "target": "es5",
       "module": "commonjs",
       "outDir": "out",
-      "sourceMap": true
+      "sourceMap": true,
+      "resolveJsonModule": true,//needed for this repo
+      "esModuleInterop": true,//needed for this repo
+      "strict": true //needed for this repo
     },
     "include": [
       "src/**/*"

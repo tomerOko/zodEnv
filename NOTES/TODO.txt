@@ -1,6 +1,6 @@
 tasks:
 ------
-    10. proper environment variable loading
+    1. proper environment variable loading
         a. comment above every group in what module are they used
         b. separate to files? 
         c. an example template
@@ -21,9 +21,28 @@ tasks:
  * שתהיה הערה מעל כל ערך
 אולי גם ממש סוג
 
+for both npm_package_template and service_template 
+* add a note about the --watchAll and describe.only / test.only
+* change the name of the container in the 'bash-in' script to 'package_template_build_container'
+* copy the 'test-watch' package.json script and the test.sh script file
 
 
 
 open questions:
 ---------------
     * 
+
+    בכל מקרה היוסר יצתרך:
+    1. לכתוב סכמה
+        a. import: ellen.sources( schema: ellen.Schema, sources: Array<elln.Source>
+            * sources example: [['procces.env', procces.env], ['deafults', defaultsEnv.json]]
+        b. creation
+            * plain: stripeApi = sources(priority1?, priority2?, priority3..).required()/.default(<value(string/number)>).validate(<see joi validation>).comment(<value(string)>).exampleValue(<value>).lock(boolen)
+            * nested: stripeApi = {
+                url: sources(priority1?, priority2?, priority3..).required()/.default(<value(string/number)>).validate(<see joi validation>).comment(<value(string)>).exampleValue(<value>).lock(boolen)
+                usarname: sources(priority1?, priority2?, priority3..).required()/.default(<value(string/number)>).validate(<see joi validation>).comment(<value(string)>).exampleValue(<value>).lock(boolen)
+                paswword: sources(priority1?, priority2?, priority3..).required()/.default(<value(string/number)>).validate(<see joi validation>).comment(<value(string)>).exampleValue(<value>).lock(boolen)
+            }
+
+    2. וזה יוצא
+        - ellenEnv. אם הפונקציה של הוולידציה היא עם טייפ שמחזיר סוג מסויים, אז בום

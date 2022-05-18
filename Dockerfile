@@ -10,6 +10,10 @@ RUN npm i -g typescript nodemon ts-node
 # defines where to run the 'ENTRYPOINT' command from
 WORKDIR /app
 
+ENV stringFromProcces=hallowFromProcces
+ENV numberFromProcces=1
+ENV booleanFromProcces=false
+
 # set the default main command of the container to run 'nodemon src/index.ts'
 ENTRYPOINT ["/bin/bash" , "-c" ]
 CMD ["bash" ]

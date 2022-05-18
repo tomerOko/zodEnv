@@ -5,7 +5,7 @@
         "type": "node",
         "request": "launch",
         "name": "NPM start",
-        "program": "/app/index.ts",
+        "program": "/app/src/index.ts",
         "preLaunchTask": "tsc: build - tsconfig.json",
         "outFiles": ["/app/out/**/*.js"]
       },
