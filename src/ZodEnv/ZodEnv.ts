@@ -1,7 +1,7 @@
 import fs from "fs";
 import z, { TypeOf } from 'zod'
 
-import { loaders } from "../1load";
+import { loaders } from "./loaders";
 export{ loaders,z }
 
 export const sources = (sourcesArray: Array<any>, defaultValue?:any):any => {
@@ -16,8 +16,12 @@ export const initializeEnv = <T extends z.ZodType<any, any, any>>(zodScheme:T):z
         console.log(error)
         throw new Error("environment variables didnt passed validations")
     }
+    Object.freeze(data)
     return data
 }
+
+
+
 
 
 

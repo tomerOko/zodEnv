@@ -7,9 +7,7 @@ interface MapFunciton<from,to> {
 
 interface nestedObject<valueType> extends Record<string, nestedObject<valueType>|valueType > {}
 
-interface NestedMapFunction <from, to> {
-    (input: nestedObject<from>, mapFunciton:MapFunciton<from,to>):nestedObject<to>
-}
+type NestedMapFunctionGeneric =  <from,to>(input: nestedObject<from | to>, mapFunciton:MapFunciton<from,to>) => nestedObject<to>
 
 const isNumeric = (n:any) => {
     return !isNaN(parseFloat(n)) && isFinite(n);
@@ -22,8 +20,6 @@ const stringToNumberOrBoolean = (input:string) => {
     if(input==='false' || input === 'FALSE' ) return false
     return input
 }
-
-type NestedMapFunctionGeneric =  <from,to>(input: nestedObject<from | to>, mapFunciton:MapFunciton<from,to>) => nestedObject<to>
 
 const nestedMap: NestedMapFunctionGeneric = (input, mapFuncion) => {
     type to = ReturnType<typeof mapFuncion>
@@ -41,14 +37,3 @@ const nestedMap: NestedMapFunctionGeneric = (input, mapFuncion) => {
 }
 
 export const fromProcces = () => nestedMap(process.env as Record<string, string> , stringToNumberOrBoolean)
-
-
-
-type test = <Type>(arg: Type)=> Type
-
-const identityTest:test = (arg) => {
-    return arg;
-}
-
-let output = identityTest("myString");
-

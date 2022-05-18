@@ -46,3 +46,9 @@ open questions:
 
     2. וזה יוצא
         - ellenEnv. אם הפונקציה של הוולידציה היא עם טייפ שמחזיר סוג מסויים, אז בום
+
+
+fromJson , fromEnv
+/**
+ * TODO: add a comment about how the path shuld look like
+ */
