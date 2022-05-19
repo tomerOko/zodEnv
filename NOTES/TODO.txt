@@ -1,3 +1,23 @@
+איך זה עובד
+בגדול העבודה מתחלקת ל3 שלבים
+שלב ראשון
+ליבא את כל הערכים של המשתני סיביבה לקובץ אחד
+אם זה בא מפרוסס או מקבצים כמו אי אן וי, ג'יסון או פשוט מודול של  גי אס
+
+* אפשרי לעשות מיניפולציות בשלב הזה כמו לבדוק איזה קבצים קיימים, או לאחד כמה קצבים ל
+לקובץ אחד על פי משתנה סביבה
+* בשלב הסופי בכל מקרה יהיה טייפ קומפלישן אבל אם רוצים גם בשלב יצירת התבנית שיהיו 
+אבל אם רוצים טייפ לשלב יצירת הפרויקט, מומלץ לעבוד עם קובת ג'יסון או טייפסקריפט מיוצא
+
+שלב שני
+ליצור תבנית וולידציה של זוד (בלי ערכים דיפולטיבים)
+בסוף כל אובייקט לכתוב דיפולט
+
+שלב שלישי
+להכניס ערכים ל***דיפולט*** מכל מה שיבאנו בשלב א''
+אפשר להכניס ערך אחד,  
+
+
 tasks:
 ------
     1. proper environment variable loading
@@ -44,11 +64,10 @@ open questions:
                 paswword: sources(priority1?, priority2?, priority3..).required()/.default(<value(string/number)>).validate(<see joi validation>).comment(<value(string)>).exampleValue(<value>).lock(boolen)
             }
 
-    2. וזה יוצא
-        - ellenEnv. אם הפונקציה של הוולידציה היא עם טייפ שמחזיר סוג מסויים, אז בום
 
 
-fromJson , fromEnv
-/**
- * TODO: add a comment about how the path shuld look like
- */
+
+
+* use zod object default to set the values
+* comment above every object in what module are they used
+* comment above pr

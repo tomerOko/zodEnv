@@ -1,7 +1,7 @@
 {
-  "name": "@chatmate/common.example",
-  "version": "1.0.2",
-  "description": "a nodejs typescript dev environment for packages development",
+  "name": "@chatmate/zodenv",
+  "version": "1.0.0",
+  "description": "an environment varibale managment solution based on Zod.js",
   "main": "index.js",
   "scripts": {
     "test": "jest",
