@@ -1,4 +1,4 @@
-import {z, sources, initializeEnv, loaders} from '../ZodEnv'
+import {z, sources, initializeEnv, loaders} from '../../../scripts/ZodEnv'
 
 import development from './files/environment/dev.json'
 import localRun from './files/environment/localRun.json'
@@ -21,8 +21,8 @@ const environmentTypes = {
     test
 }
 
-const environmentConfigs = environmentTypes[process.env.NODE_ENV as keyof typeof environmentTypes]
-
+const currentInvironment = process.env.NODE_ENV !== undefined ? process.env.NODE_ENV : 'local'
+const environmentConfigs = environmentTypes[currentInvironment as keyof typeof environmentTypes]
 
 //TODO: in the schema: add more usage of the diffrent env sources 
 
@@ -32,10 +32,11 @@ const userWritenEnvSchema = z.object({
     /** if no pussword needed set defalt to '' */
     dbPass : z.string().default(sources(['a','b','c'])),
     stripe : z.object({
-        userID : z.number(sources([null,2,], 7)),
-        chargeEndpoint : z.string(sources(['a','b','c'],'http://localhost:2702'))
-    })
+        userID : z.number().default(sources([null,2,], 7)),
+        chargeEndpoint : z.string().default(sources(['a','b','c'],'http://localhost:2702'))
+    }).default({})
 })
+
 
 const ENVs = initializeEnv(userWritenEnvSchema)
 
