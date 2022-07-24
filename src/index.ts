@@ -4,11 +4,11 @@ import z, { TypeOf } from 'zod'
 import * as loaders from "./loaders";
 export{ loaders,z }
 
-export const sources = (sourcesArray: Array<any>, defaultValue?:any):any => {
+export const findFirstNoneEmpty = (sourcesArray: Array<any>, fallbackValueIfNothingFound?:any):any => {
     for(let i=0; i<sourcesArray.length; i++){
         if(!([null, undefined, NaN].includes(sourcesArray[i]))) return sourcesArray[i] 
     }
-    return defaultValue ? defaultValue : null
+    return fallbackValueIfNothingFound ? fallbackValueIfNothingFound : null
 }
 
 export const initializeEnv = <T extends z.ZodType<any, any, any>>(zodScheme:T):z.infer<typeof zodScheme>=> {

@@ -5,7 +5,7 @@ interface MapFunciton<from,to> {
     (input: from) :to
 }
 
-interface nestedObject<valueType> extends Record<string, nestedObject<valueType>|valueType > {}
+export interface nestedObject<valueType> extends Record<string, nestedObject<valueType>|valueType > {}
 
 type NestedMapFunctionGeneric =  <from,to>(input: nestedObject<from | to>, mapFunciton:MapFunciton<from,to>) => nestedObject<to>
 
