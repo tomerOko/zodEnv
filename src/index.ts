@@ -1,7 +1,7 @@
 import fs from "fs";
 import z, { TypeOf } from 'zod'
 
-import { loaders } from "./loaders";
+import * as loaders from "./loaders";
 export{ loaders,z }
 
 export const sources = (sourcesArray: Array<any>, defaultValue?:any):any => {

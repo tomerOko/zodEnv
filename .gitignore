@@ -125,3 +125,4 @@ files/
 
 .npmrc
 /out
+package-lock.json

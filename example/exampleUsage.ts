@@ -1,5 +1,6 @@
-import {z, sources, initializeEnv, loaders} from '../../../scripts/ZodEnv'
+import {z, sources, initializeEnv, loaders} from '../src/index'
 
+//lets say y 
 import development from './files/environment/dev.json'
 import localRun from './files/environment/localRun.json'
 import production from './files/environment/production.json'
