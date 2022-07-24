@@ -121,7 +121,6 @@ dist
 .idea
 coverage/
 typedocs/
-files/
 
 .npmrc
 /out
