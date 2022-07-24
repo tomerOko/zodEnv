@@ -1,0 +1,22 @@
+{
+    "DB":{
+        "cache":{
+            "provider":"redis",
+            "url":"http://something.cluster.local",
+            "username":"some name in local",
+            "password":"some password in local"
+        },
+        "service":{
+            "provider":"mysql",
+            "url":"http://something",
+            "username":"some name",
+            "password":"some password"
+        },
+        "session":{
+            "provider":"mongo",
+            "url":"http://something",
+            "username":"some name",
+            "password":"some password"
+        }
+    }
+}

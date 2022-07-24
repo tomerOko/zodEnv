@@ -1,6 +1,6 @@
 {
   "name": "@chatmate/zodenv",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "an environment varibale managment solution based on Zod.js",
   "main": "index.js",
   "scripts": {
