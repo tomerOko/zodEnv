@@ -2,21 +2,23 @@
     "DB":{
         "cache":{
             "provider":"redis",
-            "url":"http://something.cluster.local",
-            "username":"some name in local",
-            "password":"some password in local"
+            "url":"http://something.cluster.staging",
+            "username":"some name in staging",
+            "password":"some password in staging"
         },
         "service":{
             "provider":"mysql",
-            "url":"http://something",
+            "url":"http://something.com",
             "username":"some name",
             "password":"some password"
         },
         "session":{
             "provider":"mongo",
-            "url":"http://something",
+            "url":"http://something.com",
             "username":"some name",
             "password":"some password"
         }
-    }
+    },
+    "external_call_timout":15000,
+    "internal_call_timeout":1000
 }

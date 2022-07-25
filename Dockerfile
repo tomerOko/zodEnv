@@ -3,6 +3,7 @@ FROM node:17-alpine3.14
 
 # install bash
 RUN apk add --no-cache --upgrade bash
+RUN apk add git
 
 # needed global packages for the project
 RUN npm i -g typescript nodemon ts-node

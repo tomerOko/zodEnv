@@ -12,6 +12,16 @@
       {
         "type": "node",
         "request": "launch",
+        "name": "debug the example usage",
+        "runtimeExecutable": "/usr/local/bin/nodemon",
+        "program": "src/example/exampleOfUsage/index.ts",
+        "restart": true,
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen"
+      },
+      {
+        "type": "node",
+        "request": "launch",
         "name": "Jest run all tests (no watch)",
         "program": "/app/node_modules/jest/bin/jest.js",
         "args": [

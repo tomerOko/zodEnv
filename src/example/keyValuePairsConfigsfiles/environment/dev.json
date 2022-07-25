@@ -7,7 +7,7 @@
             "password":"some password in staging"
         },
         "service":{
-            "provider":"mysql",
+            "provider":"mongo",
             "url":"http://something",
             "username":"some name",
             "password":"some password"
@@ -18,5 +18,7 @@
             "username":"some name",
             "password":"some password"
         }
-    }
+    },
+    "external_call_timout":3000,
+    "internal_call_timeout":1000
 }

@@ -9,11 +9,15 @@ import path from "path";
  * @example
  * const <some_name> = fromJSON('/src/<path to file from src>/.env')
  */
-export const fromENV = (filePath:string) => {
+export interface keyValuePairs {
+    [name: string]: string;
+  }
+export const fromENV = (filePath:string): keyValuePairs => {
     filePath = removeLeadingSlash(filePath)
     const address = path.resolve(filePath)
     const rawData = readFileSync(address)
-    return dotenv.parse(rawData) // will return an object
+    const parsedData:keyValuePairs = dotenv.parse(rawData)
+    return parsedData
 }
 
 const removeLeadingSlash = (filePath:string):string => filePath = filePath[0]=='/' ? filePath.slice(1) : filePath
