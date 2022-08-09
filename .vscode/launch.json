@@ -2,22 +2,23 @@
     "version": "0.2.0",
     "configurations": [
       {
+        "name": "compile and run from 'out'",
         "type": "node",
         "request": "launch",
-        "name": "NPM start",
         "program": "/app/src/index.ts",
         "preLaunchTask": "tsc: build - tsconfig.json",
         "outFiles": ["/app/out/**/*.js"]
       },
       {
-        "type": "node",
-        "request": "launch",
-        "name": "debug the example usage",
-        "runtimeExecutable": "/usr/local/bin/nodemon",
-        "program": "src/example/exampleOfUsage/index.ts",
-        "restart": true,
+        "name": "nodemon",
         "console": "integratedTerminal",
-        "internalConsoleOptions": "neverOpen"
+        "internalConsoleOptions": "neverOpen",
+        "program": "/app/src/index.ts",
+        "request": "launch",
+        "restart": true,
+        "runtimeExecutable": "/app/node_modules/.bin/nodemon",
+        "type": "pwa-node",
+        "args": ["--config", "nodemon.json"]
       },
       {
         "type": "node",

@@ -3,25 +3,56 @@ import {z, findFirstNoneEmpty, initializeEnv} from '../../index'
 import { invironmentConfigs ,allEnvironmentsConfigs } from "./choosEnvironment";
 import { secrets } from './loadENVsFromAllSources';
 
+/**
+ * 
 
-// after we:
-//1) loaded all key value pairs of confings, from all sources.
-//2) choosed the current environment
-// now we will use the main issue here (the zod validation schema) to achive 3 important goals
-// 1) create a configuration object that its keys will always be the same (of course not the values) - so from here on there is no need to think of environments while developing
-// 2) validate the key value pairs (that they all exist, and that they are of the correct type, length, etc)
-// 3) after the validation, our config object values (including nested objects/arrays) will be typed-safe
-// 4) add comments so that we and the rest of the developer of the codebase can understand what the key value pairs are for and how to use them 
+after we have:
+
+1) loaded all configs (key-value) from all sources.
+2) received indication of what environment we are about to run in (local / dev / 
+    integration / test / prod)
+
+    
+now we will use the main tool, the Zod validation schema, to achieve 5 important goals:
+
+1)  single source of truth and centralization: by creating a single object to contain all the
+    program's configurations. 
+	    breakdown: no more usage of multiple configuration sources such as 'global variables',
+        'procces.env', 'config.json', etc..
+
+2)  abstraction: the keys of that single object will be identical in all environments and 
+    differ only by its values. 
+	    Breakdown: in many code bases, the environment classification is repetitive and 
+        blended with the rest of the code
+
+3)  confidence and safety regarding the configuration values: by validating the single 
+    configuration object while creating it. the validation makes sure that all the mandatory
+    values are present, and that each value is of the right type, length, positive/negative,
+    match regex pattern, in range, etc...
+	    Breakdown: config files are not part of the codebase, they are not under the git 
+        control, and usually can be changed by different developers/teams/pipelines. Because
+        of that, the configuration had always been a weak point in the code that can cause 
+        confusion, bags, or incorrect behevior in production. by validating the configuration,
+        the developers can gain back full control of their program, and not worry about 
+        unexpected behaviors, bad configurations can still be sopplied, but they will be 
+        found and presented before the program starts running.
+
+4) static type-support: after the validation, the single configurations object will have static type-support through the rest of the program.
+	breakdown: usualy config variables are of type 'any', and it is problematic because typescript can not help us with type safety, it can be confusing while developing, and it encourages bad code. static type support solves these problems for our config object
+
+5) dev-experience: add comments so that we and the rest of the developer of the codebase can understand what the key-value pairs are for and how to use them 
+
+וולידציה על האובייקט שנוצר, וולידציה שהערכים שחייבים להיות קיימים אכן קיימים, שהם מהסוג הנכון ובטווח הנכון של אורך, ערך מספרי וכדומה. בגלל שהקבצי קונפיגורציה הרבה פעמים לא בשליטת המפתח, יכולים להשתנות על ידי אנשים שונים, ולא מתועדים בגיט, יכולות להיווצר הרבה תעויות סביב הנושא. ברגע שיש וולידציה בקוד, זה בעצם מגן על הקוד משינויים בקונפיגורציה, והמפתח יודע שבמקרה שמשהו בקונפיגורציה לא בסדר זה יתגלה עוד לפני שהסרבר יתחיל לרוץ
 
 // 1. בנייה כללית של האובייקט קונפיגורציה הכללי בעזרת הdefault
 // 2. שימוש בfindFirstNoneEmpty כדי לחפש ערך קיים ראשון בין כמה אופציות או ברירת מחדל אם לא נמצא ערך תקין
-// 3. יצירת סכמה לוידויי של הערכים, שהם קיימים, שהם בטייפ הנכון, שהערך הגיוני וכו
 // 4. הערות שאחר כך יופיעו בכל האפליקציה
 
 // לשפר את השימוש
 // לא לשים סטרינגים בפונקציית חיפוש כי זה מבלבל, 
 // להשתמש במקורות שונים בשביל דברים שהם לא תלויי סביבה או סיקרטים או וואט אבר
 // להוסיף עוד תוכן או להסביר שבסוף זה אמור להיות אובייקט ענק
+*/
 
 // לוודא שהכל פה עובד
 const userWritenEnvSchema = z.object({

@@ -1,6 +1,6 @@
 {
   "name": "@chatmate/zodenv",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "description": "an environment varibale managment solution based on Zod.js",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "lib"
+  ],
   "author": "tomer oko",
   "license": "MIT",
   "dependencies": {
