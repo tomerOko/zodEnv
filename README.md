@@ -20,3 +20,4 @@ future:
     * you can lock(freeze) parts of the final env object
     * you
 
+    // "prepare": "npm run build",
